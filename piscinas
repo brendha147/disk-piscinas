@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>DISK PISCINAS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0077b6, #00b4d8);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    button, select {
+      padding: 12px;
+      width: 100%;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      background: #0077b6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #023e8a;
+    }
+
+    footer {
+      background: #023e8a;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>DISK PISCINAS</h1>
+  <p>Limpeza e Manutenção de Piscinas</p>
+</header>
+
+<section>
+
+  <div class="card">
+    <h2>🧼 Serviços</h2>
+    <ul>
+      <li>Limpeza completa da piscina</li>
+      <li>Aspiração e escovação</li>
+      <li>Análise e tratamento da água</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>💰 Simule seu Plano Mensal</h2>
+
+    <label>Escolha o plano:</label>
+    <select id="plano">
+      <option value="200">Mensal – 1x no mês (R$ 200,00)</option>
+      <option value="550">Mensal com produtos (R$ 550,00)</option>
+      <option value="50">Avulsa (R$ 50,00)</option>
+    </select>
+
+    <button onclick="calcular()">Calcular Valor</button>
+
+    <p id="resultado" style="font-size:18px; font-weight:bold; margin-top:15px;"></p>
+
+    <button onclick="whatsapp()">Contratar pelo WhatsApp</button>
+  </div>
+
+</section>
+
+<footer>
+  © 2026 - DISK PISCINAS
+</footer>
+
+<script>
+  function calcular() {
+    const plano = document.getElementById("plano");
+    const valor = plano.value;
+    const texto = plano.options[plano.selectedIndex].text;
+
+    document.getElementById("resultado").innerText =
+      "Plano selecionado: " + texto;
+  }
+
+  function whatsapp() {
+    const plano = document.getElementById("plano");
+    const texto = plano.options[plano.selectedIndex].text;
+
+    const mensagem = encodeURIComponent(
+      "Olá! Gostaria de contratar o serviço da DISK PISCINAS.\nPlano escolhido: " + texto
+    );
+
+    // 👉 TROQUE O NÚMERO ABAIXO
+    window.open("https://wa.me/5517992653316?text=" + mensagem, "_blank");
+  }
+</script>
+
+</body>
+</html>
